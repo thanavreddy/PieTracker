@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Minimal Budget Tracker</title>
+
+  <!-- Tailwind CSS & Chart.js -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Poppins font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+
+    [data-theme="dark"] body {
+      background-color: #0f0f0f;
+      color: #f5f5f5;
+    }
+
+    [data-theme="dark"] input,
+    [data-theme="dark"] .bg-white {
+      background-color: #1c1c1c;
+      color: #f5f5f5;
+      border-color: #333;
+    }
+
+    [data-theme="dark"] button {
+      background-color: #f5f5f5;
+      color: #0f0f0f;
+    }
+
+    [data-theme="dark"] .toggle-btn {
+      background-color: #1c1c1c;
+      color: #f5f5f5;
+      border: 1px solid #333;
+    }
+
+    [data-theme="light"] .toggle-btn {
+      background-color: #f5f5f4;
+      color: black;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6 transition-colors duration-300">
+  <div class="w-full max-w-5xl rounded-xl shadow-md p-6 md:p-10 flex flex-col md:flex-row gap-8 bg-white dark:bg-zinc-900">
+    
+    <!-- Left Section -->
+    <div class="flex-1 space-y-4">
+      <div class="flex justify-between items-center">
+        <h1 class="text-2xl font-semibold text-white">Budget Tracker</h1>
+        <!-- <button id="toggleTheme" class="toggle-btn px-3 py-1 rounded text-sm text-black">
+          Toggle Mode
+        </button> -->
+      </div>
+
+      <form id="expenseForm" class="space-y-4">
+        <div>
+          <label for="category" class="block text-sm text-white">Category</label>
+          <input type="text" id="category" placeholder="e.g. Food" required
+            class="mt-1 w-full p-2 border rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-black focus:border-black" />
+        </div>
+        <div>
+          <label for="amount" class="block text-sm text-white">Amount</label>
+          <input type="number" id="amount" placeholder="e.g. 100" required min="1"
+            class="mt-1 w-full p-2 border rounded-md bg-gray-50 focus:outline-none focus:ring-1 focus:ring-black focus:border-black" />
+        </div>
+        <button type="submit"
+          class="mt-2 px-4 py-2 bg-black text-white rounded-md hover:bg-neutral-800 transition">
+          Add Expense
+        </button>
+      </form>
+    </div>
+
+    <!-- Chart -->
+    <div class="flex-1 text-white">
+      <canvas id="expenseChart" class="w-full h-full max-h-80 text-white" ></canvas>
+    </div>
+  </div>
+
+  <script src="script.js">
+    
+  </script>
+</body>
+</html>
